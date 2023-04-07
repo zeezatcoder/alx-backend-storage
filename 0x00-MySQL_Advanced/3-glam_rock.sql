@@ -1,5 +1,5 @@
--- Write a SQL script that lists all bands_name, and  longevity
-SELECT band_name, (IFNULL(split, '2020') - formed) AS lifespan
-    FROM metal_bands
-    WHERE FIND_IN_SET('Glam rock', IFNULL(style, "")) > 0
-    ORDER BY lifespan DESC;
+-- A script to select bands
+SELECT band_name, (IFNULL(split, 2022) - formed) AS lifespan
+FROM metal_bands
+WHERE style LIKE '%Glam rock%'
+ORDER BY lifespan DESC;
